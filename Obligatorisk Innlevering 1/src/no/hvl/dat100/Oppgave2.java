@@ -5,13 +5,25 @@ import static javax.swing.JOptionPane.*;
 public class Oppgave2 {
 
 	public static void main(String[] args) {
-		String karTxt = showInputDialog("Poengsum? :");
-		int points = Integer.parseInt(karTxt);
 		
+		for (int i = 0; i < 10; i++) {
+			String karTxt;
+			boolean acceptedInput = false;
+			int points = 1;
+			
+			while (!acceptedInput) {
+				karTxt = showInputDialog("Poengsum? : (elev" + (i+1) + ")");
+				points = Integer.parseInt(karTxt);
+				
+				if (points >=0 && points <=100) {
+					acceptedInput = true;
+				} else { 
+					showMessageDialog(null, "Ugyldig input, prøv igjen! (Poengsum må være mellom 0-100)");
+				}
+			}
+			
 		String karakter;
-		
-		
-		
+	
 		if  (points >=90 && points <= 100) {
 			karakter = "A - Fremragende";
 			showMessageDialog(null, "Din karakter er: " + karakter);
@@ -30,15 +42,11 @@ public class Oppgave2 {
 		} else if (points >=0 && points <=39) {
 			karakter = "F - Ugyldig karakter";
 			showMessageDialog(null, "Din karakter er: " + karakter);
-		} else if (points >=0 || points <=100) {
+		} else if (points >0 || points <100) {
 			karakter = "Ugyldig karakter";
 			showMessageDialog(null, "Din karakter er: " + karakter);
-			
-			
 		}
 		
-
-		
 	}
-	
+	}
 }
